@@ -5,13 +5,15 @@ group rootProject.ext.GROUP
 
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':third-party:aosp-dexutils')
     compile project(':third-party:bsdiff-util')
 }
 
-task buildSdk(type: Copy, dependsOn: [build]) {
+task buildTinkerSdk(type: Copy, dependsOn: [build]) {
+    group = "tinker"
     from('build/libs') {
         include '*.jar'
         exclude '*javadoc.jar'
