@@ -127,8 +127,6 @@ class TinkerResourcePatcher {
                 // N moved the resources to mResourceReferences
                 Field mResourceReferences = resourcesManagerClass.getDeclaredField("mResourceReferences");
                 mResourceReferences.setAccessible(true);
-//                resourceImpls = (ArrayMap<?, WeakReference<?>>) mResourceReferences.get("mResourceImpls");
-
                 references = (Collection<WeakReference<Resources>>) mResourceReferences.get(resourcesManager);
             }
         } else {
@@ -237,7 +235,6 @@ class TinkerResourcePatcher {
 //        if (!isMiuiSystem) {
 //            return;
 //        }
-
         Log.w(TAG, "try to clear typedArray cache!");
         // Clear typedArray cache.
         try {
